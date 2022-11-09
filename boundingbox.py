@@ -6,18 +6,8 @@ import time
 import csv
 from bdb import effective
 import math
-from brightncontrast import *
 
 img = cv2.imread("D:\Kuliah\judul-skripsi\codingan\Percobaan\output\hasil_10.png")
-
-#image crop
-# y=400
-# x=210
-# h=800
-# w=260
-# crop_image = img[x:w, y:h]
-# cv2.imshow("Croped", crop_image)
-# #cv2.waitKey(0)
 
 list_rect = []
 
@@ -71,52 +61,9 @@ for cnt in contours:
 
     cv2.circle(img, (int(x), int(y)), 5, (0, 0, 255), -1)
     cv2.polylines(img, [box], True, (255, 0, 0), 2)
-    # cv2.putText(img, "Width {} px".format(round(w, 1)), (int(x - 100), int(y - 20)), cv2.FONT_HERSHEY_PLAIN, 1.5, (100, 200, 0), 1)
-    # cv2.putText(img, "Height {} px".format(round(h, 1)), (int(x - 100), int(y + 15)), cv2.FONT_HERSHEY_PLAIN, 1.5, (100, 200, 0), 1) 
 
-# def BrightnessContrast(brightness=0):
-  
-#   # getTrackbarPos returns the current
-#   # position of the specified trackbar.
-#   brightness = cv2.getTrackbarPos('Brightness',
-#                   'GEEK')
-  
-#   contrast = cv2.getTrackbarPos('Contrast',
-#                 'GEEK')
-
-#   effect = controller(img, brightness,
-#             contrast)
-
-#automation brightness
-s = 1024
-# img = cv2.resize(img, (s,s), 0, 0, cv2.INTER_AREA)
+#disini buat brightness nya
 def apply_brightness_contrast(input_img, img, brightness = 0, contrast = 0):
-
-# def controller(input_img, brightness = 0, contrast = 0):
-
-#     if brightness != 0:
-
-#         if brightness > 0:
-#            shadow = brightness
-#            max = 255
-#         else:
-#            shadow = 0
-#            max = 255 + brightness
-#         al_pha = (max - shadow) / 255
-#         ga_mma = shadow
-
-#         buf = cv2.addWeighted(input_img, al_pha, input_img, 0, ga_mma)
-#     else:
-#         buf = input_img.copy()
-
-#     if contrast != 0:
-#         f = 131*(contrast + 127)/(127*(131-contrast))
-#         alpha_c = f
-#         gamma_c = 127*(1-f)
-        
-#         buf = cv2.addWeighted(buf, alpha_c, buf, 0, gamma_c)
-
-#     return buf
 
 fcolor = (0,0,0)
 font = cv2.FONT_HERSHEY_SIMPLEX
